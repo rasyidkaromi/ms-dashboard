@@ -1,14 +1,18 @@
 import React from 'react';
-import { Container } from 'reactstrap';
-
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Login from './components/Login/Login';
+import DashHome from './components/Dashboard/DashHome';
 
 function App() {
   return (
-    <Container>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/dashboard" component={DashHome} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </BrowserRouter>
 
-      <h2>Project bare start</h2>
-      
-    </Container>
   );
 }
 
