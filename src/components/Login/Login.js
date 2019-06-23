@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { Component } from "react";
 import { Container } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-class Login extends React.Component {
+// Configure FirebaseUI.
+const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/dashboard',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ]
+};
 
+class Login extends Component {
     render() {
         return (
             <Container>
-                <h2>Welcome to Login Page!</h2>
-
-                <Link to="/dashboard">Go to Dashboard Home</Link>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </Container>
         )
     }
 }
-
 
 export default Login;
