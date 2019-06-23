@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Container } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-// Configure FirebaseUI.
 const uiConfig = {
-    // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
     signInSuccessUrl: '/dashboard',
-    // We will display Google and Facebook as auth providers.
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID
@@ -19,9 +15,17 @@ const uiConfig = {
 class Login extends Component {
     render() {
         return (
-            <Container>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-            </Container>
+            <div className="fluid form-box">
+                <Row>
+                    <Col md="6" className="login-left">
+                        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                    </Col>
+
+                    <Col md="6" className="login-right">
+                        <p>Coming soon. Possibility a background image or gradient.</p>
+                    </Col>
+                </Row>
+            </div>
         )
     }
 }
