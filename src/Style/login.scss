@@ -5,10 +5,20 @@
 
 .login-left {
     height: 100vh;
-    background-color: #F8F8F8;
+    background-color: #FFF;
 }
 
 .login-right{
-    height: 100vh;
-    background-color: #3399FF;
+    background-image: url('../images/bg_business-work.jpg');  //archt.jpg
+    background-size: cover;
+    height: auto;
+    //background-color: #3399FF;
 }
+
+.firebaseui-idp-google { 
+    background-color: #F8F8F8 !important;
+}
+
+
+
+ // background-color: #4885ed !important; Google Blue
