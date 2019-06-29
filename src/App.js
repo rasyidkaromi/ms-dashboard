@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
 import DashHome from './components/Dashboard/DashHome';
 import firebaseConfig from './firebaseConfig';
-import './style/login.scss';
-import './style/dashboard.scss';
-import './style/general.scss';
+import '../src/assets/style/login.scss';
+import '../src/assets/style/dashboard.scss';
+import '../src/assets/style/general.scss';
 
 class App extends Component {
 

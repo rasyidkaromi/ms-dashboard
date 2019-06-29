@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container } from 'reactstrap';
+import { Row, Container, Col } from 'reactstrap';
+import Example from '../Charts/Example';
 
 export default function DashHome() {
     const [data, setData] = useState([]);
@@ -14,13 +15,30 @@ export default function DashHome() {
 
     return (
         <Container>
-            <ul>
-                {data.map(item => (
-                    <li key={item.username}>
-                        {item.username}: {item.name}
-                    </li>
-                ))}
-            </ul>
+
+            <Row>
+                <Col lg="12">
+                    <Example />
+                </Col>
+            </Row>
+
+            <Row>
+                <Col lg="4">Block</Col>
+
+                <Col lg="4">Block</Col>
+
+                <Col lg="4">Block</Col>
+            </Row>
+
+            <Row>
+                <ul>
+                    {data.map(item => (
+                        <li key={item.username}>
+                            {item.username}: {item.name}
+                        </li>
+                    ))}
+                </ul>
+            </Row>
         </Container>
     );
 }
