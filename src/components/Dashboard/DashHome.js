@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Row, Container, Col } from 'reactstrap';
-import Example from '../Charts/Example';
+import { Row, Container, Col, Card } from 'reactstrap';
+import PlotChart from '../Charts/PlotChart';
 import Nav from './Nav';
+import Test from '../Charts/Test';
 
 export default function DashHome() {
     const [data, setData] = useState([]);
@@ -13,38 +14,49 @@ export default function DashHome() {
             .then(result => setData(result.data));
     }, []);
 
-
     return (
         <div>
-            <Row>
+            <Row className="margin-fix">
                 <Nav />
+                
                 <Col lg="10">
 
-                    <Example />
+                    <PlotChart />
 
-                    <Container>
-                            <Row className="spacer">
-                                <Col lg="3">Block</Col>
+                    <Container className="dash-wrap">
+                        <Row className="text-center spacer">
 
-                                <Col lg="3" offset="3">Block</Col>
+                            <Col lg="4">
+                                <Card>
+                                    <Test />
+                                </Card>
+                            </Col>
 
-                                <Col lg="3">Block</Col>
+                            <Col lg="4">
+                                <Card>
+                                    <Test />
+                                </Card>
+                            </Col>
 
-                                <Col lg="3">Block</Col>
+                            <Col lg="4">
+                                <Card>
+                                    <Test />
+                                </Card>
+                            </Col>
 
-                            </Row>
+                        </Row>
 
-                            <Row>
-                                <ul>
-                                    {data.map(item => (
-                                        <li key={item.username}>
-                                            {item.username}: {item.name}
-                                        </li>
-                                    ))}
-                                </ul>
+                        <Row>
+                            <ul>
+                                {data.map(item => (
+                                    <li key={item.username}>
+                                        {item.username}: {item.name}
+                                    </li>
+                                ))}
+                            </ul>
 
-                            </Row>
-                   
+                        </Row>
+
                     </Container>
                 </Col>
             </Row>

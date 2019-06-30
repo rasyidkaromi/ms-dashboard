@@ -18,7 +18,7 @@ function generateData() {
 
 const MODE = ['noWobble', 'gentle', 'wobbly', 'stiff'];
 
-export default class Example extends Component {
+export default class PlotChart extends Component {
   state = {
     data: generateData(),
     modeIndex: 0

@@ -1,10 +1,21 @@
 
 
 .side-nav {
+    height: auto;
     background-color: purple;
     padding: 30px;
 }
 
 .spacer {
     margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.dash-wrap {
+   position: relative;
+   margin: 20px;
+}
+
+.margin-fix {
+    margin-right: auto !important;
 }
