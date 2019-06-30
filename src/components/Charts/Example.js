@@ -38,7 +38,7 @@ export default class Example extends Component {
     return (
       <div className="centered-and-flexed">
 
-        <XYPlot width={1100} height={300}>
+        <XYPlot width={1000} height={300}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
