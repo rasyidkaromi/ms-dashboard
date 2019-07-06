@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Container, Col, Card } from 'reactstrap';
 import PlotChart from '../Charts/PlotChart';
-import Nav from './Nav';
-import Test from '../Charts/Test';
+import SideNav from './SideNav';
+import LineChart from '../Charts/LineChart';
+import RadialChart from '../Charts/RadialChart';
 
 export default function DashHome() {
     const [data, setData] = useState([]);
@@ -17,7 +18,8 @@ export default function DashHome() {
     return (
         <div>
             <Row className="margin-fix">
-                <Nav />
+
+                <SideNav />
                 
                 <Col lg="10">
 
@@ -28,19 +30,19 @@ export default function DashHome() {
 
                             <Col lg="4">
                                 <Card>
-                                    <Test />
+                                    <RadialChart />
                                 </Card>
                             </Col>
 
                             <Col lg="4">
                                 <Card>
-                                    <Test />
+                                    <LineChart />
                                 </Card>
                             </Col>
 
                             <Col lg="4">
                                 <Card>
-                                    <Test />
+                                    <LineChart />
                                 </Card>
                             </Col>
 

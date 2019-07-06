@@ -1,0 +1,19 @@
+.form-box {
+  position: relative;
+}
+
+.login-left {
+  height: 100vh;
+  background-color: #FFF;
+}
+
+.login-right {
+  background-image: url("../images/bg_business-work.jpg");
+  background-size: cover;
+  height: auto;
+}
+
+.firebaseui-idp-google {
+  background-color: #F8F8F8 !important;
+}
+/*# sourceMappingURL=login.css.map */

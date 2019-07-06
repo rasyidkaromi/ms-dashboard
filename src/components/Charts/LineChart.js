@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries } from 'react-vis';
 
-export default class Test extends Component {
+export default class LineChart extends Component {
     render() {
         return (
             <XYPlot

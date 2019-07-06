@@ -1,11 +1,10 @@
 import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink, Button } from 'reactstrap';
+import  firebase from 'firebase/app';
 
-export default class Example extends React.Component {
-  render() {
+const SideNav = (props) => {
     return (
       <div className="side-nav">
- 
         <Nav vertical>
           <NavItem>
             <NavLink href="#">Link</NavLink>
@@ -19,8 +18,17 @@ export default class Example extends React.Component {
           <NavItem>
             <NavLink disabled href="#">Disabled Link</NavLink>
           </NavItem>
+          <NavItem>
+            <Button onClick={ logout }>Log out</Button>
+          </NavItem>
         </Nav>
       </div>
     );
-  }
+
+	async function logout() {
+		await firebase.logout()
+		props.history.push('/')
+	}
 }
+
+export default SideNav;
