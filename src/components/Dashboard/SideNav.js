@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
-import Login from '../Login/Login';
+import { Redirect } from "react-router";
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import firebase from 'firebase';
 
 class SideNav extends Component {
   state = {
     isSignedIn: true
-  }
-
-  uiConfig = {
-    signInFlow: "popup",
-    signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    ],
-    callbacks: {
-      signInSuccess: () => true
-    }
   }
 
   componentDidMount = () => {
@@ -43,11 +33,10 @@ class SideNav extends Component {
 
           {this.state.isSignedIn ? (
             <div>
-
               <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
             </div>
           ) : (
-              <Login />
+              <Redirect to="/" />
             )}
 
         </Nav>
