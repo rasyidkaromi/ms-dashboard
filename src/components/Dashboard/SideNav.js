@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Login from '../Login/Login';
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
-import  firebase from 'firebase/app';
+import firebase from 'firebase';
 
-const SideNav = (props) => {
+class SideNav extends Component {
+  state = {
+    isSignedIn: true
+  }
+
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    ],
+    callbacks: {
+      signInSuccess: () => true
+    }
+  }
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: user })
+    })
+  }
+
+  render() {
     return (
       <div className="side-nav">
         <Nav vertical>
@@ -18,17 +40,21 @@ const SideNav = (props) => {
           <NavItem>
             <NavLink disabled href="#">Disabled Link</NavLink>
           </NavItem>
-          <NavItem>
-            <Button onClick={ logout }>Log out</Button>
-          </NavItem>
+
+          {this.state.isSignedIn ? (
+            <div>
+
+              <Button onClick={() => firebase.auth().signOut()}>Sign-out</Button>
+            </div>
+          ) : (
+              <Login />
+            )}
+
         </Nav>
       </div>
-    );
 
-	async function logout() {
-		await firebase.logout()
-		props.history.push('/')
-	}
+    );
+  }
 }
 
 export default SideNav;
