@@ -1,6 +1,4 @@
 
-## Marketing and Sales Dashboard - React.js, D3 and Firebase Auth.
+## Marketing and Sales Dashboard - React.js, React Router, D3, Firebase Auth and Firestore database.
 
-This code will be based on an interactive prototype that I design.
-
-<em>In Progress.</em>
+<em>In Progress...</em>
